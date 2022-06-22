@@ -1,0 +1,31 @@
+body,  .hangman-game-container{
+    height: 100vh;
+}
+
+
+.word-puppet-wrapper{
+    display: flex;
+}
+
+.word-puppet-wrapper > div{
+    flex: 1;
+}
+
+.hangman-flex-wrapper{
+    height: 100%;
+}
+
+.hangman-word{
+    display: flex;
+    height: 400px;
+    /*border: 1px solid black;*/
+    justify-content: center;
+    align-items: center;
+}
+
+.hangman-word .letter{
+    width: 40px;
+    height: 1px;
+    border-bottom: 4px solid black;
+    margin: 10px;
+}
