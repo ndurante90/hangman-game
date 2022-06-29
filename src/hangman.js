@@ -1,5 +1,6 @@
 import { GameContainer } from "./components/game-container.js";
 import { MenuComponent } from "./components/menu-component.js";
+import "./style.css";
 
 document.addEventListener("DOMContentLoaded", () => {
   const hangman = new Hangman();

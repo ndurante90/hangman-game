@@ -2,8 +2,10 @@
   "name": "hangman-game",
   "version": "1.0.0",
   "description": "Hangman game in vanilla js",
-  "main": "index.js",
+  "main": "./src/index.js",
   "scripts": {
+    "start": "webpack-dev-server --mode development",
+    "build": "webpack --mode development",
     "test": "jest"
   },
   "repository": {
@@ -17,11 +19,22 @@
   },
   "homepage": "https://github.com/ndurante90/hangman-game#readme",
   "devDependencies": {
+    "@babel/core": "^7.18.5",
     "@babel/preset-env": "^7.18.2",
     "babel-jest": "^28.1.1",
-    "jest": "^28.1.1"
+    "babel-loader": "^8.2.5",
+    "css-loader": "^6.7.1",
+    "esm": "^3.2.25",
+    "html-loader": "^3.1.2",
+    "jest": "^28.1.1",
+    "style-loader": "^3.3.1",
+    "webpack-cli": "^4.10.0"
   },
   "dependencies": {
-    "open": "^8.4.0"
+    "html-webpack-plugin": "^5.5.0",
+    "open": "^8.4.0",
+    "rxjs": "^7.5.5",
+    "webpack": "^5.73.0",
+    "webpack-dev-server": "^4.9.2"
   }
 }
