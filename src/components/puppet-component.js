@@ -1,24 +1,28 @@
-import { Observable } from "rxjs";
-
 export class PuppetComponent {
-  constructor(errorsObservable) {
+  basePath = "assets/hangman-";
+
+  constructor() {
     this.errorsNumber = 0;
-    this.template = `<div class="puppet">
-                         <img src="../assets/hangman-0.png">
-                    </div>`;
-    this.errorsObservable = errorsObservable;
+  }
+
+  get template() {
+    let template = `
+       <div class="puppet">
+          <img id="puppet-img" src="${this.basePath}${this.errorsNumber}.png" alt="">
+        </div>
+       `;
+    return template;
   }
 
   getImage() {
     return `hangman-${this.errorsNumber}.png`;
   }
 
-  updateImage(buttonElement) {
-    this.errorsObservable.subscribe((res) => {
-      this.errorsNumber = res;
-      this.template = `<div class="puppet">
-      <img src="../assets/${this.getImage()}">
- </div>`;
-    });
+  updateImage(buttonText, wordText) {
+    if (!wordText.includes(buttonText)) {
+      this.errorsNumber++;
+      const puppetImg = document.getElementById("puppet-img");
+      puppetImg.setAttribute("src", `${this.basePath}${this.errorsNumber}.png`);
+    }
   }
 }

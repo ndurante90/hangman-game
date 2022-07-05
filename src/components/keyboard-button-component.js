@@ -1,13 +1,11 @@
-import { timestamp } from "rxjs";
-import { obs$, emitCar } from "../constants.js";
-
 export class KeyBoardButtonComponent {
+  errorDetected = false;
   constructor(car) {
     this.car = car;
   }
 
   get template() {
-    return `<button id="btn-${this.car}" class="button">${this.car}</button>`;
+    return `<button id="btn-${this.car}" class="button" onclick="">${this.car}</button>`;
     /*const el = document.createElement("div");
     el.setAttribute("id", "btn-" + this.car);
     el.setAttribute("class", "button");

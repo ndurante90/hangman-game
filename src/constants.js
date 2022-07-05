@@ -1,5 +1,3 @@
-import { Observable } from "rxjs";
-
 export const MaximumIdValue = {
   people: 84,
   planets: 60,
@@ -8,11 +6,3 @@ export const MaximumIdValue = {
   starships: 36,
   vehicles: 28,
 };
-
-export const obs$ = new Observable((subscriber) => {
-  subscriber.next(null);
-});
-
-export function emitCar(car) {
-  obs$.next(car);
-}

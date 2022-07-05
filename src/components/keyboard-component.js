@@ -34,6 +34,7 @@ export class KeyBoardComponent {
     for (let car of this.rows[num]) {
       const component = new KeyBoardButtonComponent(car.toUpperCase());
       rowTemplate += component.template;
+      this.buttons.push(component);
     }
     rowTemplate += "</div>";
     return rowTemplate;
@@ -45,7 +46,7 @@ export class KeyBoardComponent {
     const wordElement = document.querySelector(
       `[data-letter="${buttonText.toLowerCase()}"]`
     );
-    console.log(wordElement);
+
     if (!wordElement) {
       btn.setAttribute("class", "cross-decoration");
     }
