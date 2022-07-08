@@ -40,15 +40,25 @@ export class KeyBoardComponent {
     return rowTemplate;
   }
 
-  disableButton(buttonText) {
+  /**
+   * Update the button UI
+   * @param {string} buttonText
+   */
+  updateButton(buttonText) {
     const btn = document.getElementById("btn-" + buttonText);
-    btn.setAttribute("disabled", true);
+
+    if (btn) {
+      btn.setAttribute("disabled", true);
+    }
+
     const wordElement = document.querySelector(
       `[data-letter="${buttonText.toLowerCase()}"]`
     );
 
     if (!wordElement) {
-      btn.setAttribute("class", "cross-decoration");
+      btn.setAttribute("class", "button cross-decoration");
+    } else {
+      btn.setAttribute("class", "button selected");
     }
   }
 }

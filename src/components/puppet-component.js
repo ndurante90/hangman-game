@@ -18,6 +18,11 @@ export class PuppetComponent {
     return `hangman-${this.errorsNumber}.png`;
   }
 
+  /**
+   * Render the correct hangman image
+   * @param {string} buttonText
+   * @param {string} wordText
+   */
   updateImage(buttonText, wordText) {
     if (!wordText.includes(buttonText)) {
       this.errorsNumber++;

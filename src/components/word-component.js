@@ -1,17 +1,7 @@
 export class WordComponent {
-  constructor(word) {
+  constructor(word = null) {
     this.word = word;
   }
-  /*get template() {
-    return `
-    <div class="hangman-word">
-       ${this.getHiddenWordTemplate(this.word)}
-    </div>
-    <div class="hint">
-       <strong>Hint:</strong> Think to Star Wars ${this.word.hint}
-    </div>
-    `;
-  }*/
 
   getText() {
     return this.word?.text;
@@ -34,14 +24,21 @@ export class WordComponent {
     return template;
   }
 
+  /**
+   * Updates the hidden word substituting buttonText character in right places (if present)
+   * @param {string} buttonText
+   */
   updatesWord(buttonText) {
     buttonText = buttonText.toLowerCase();
+
     if (this.word) {
+      // returns buttonText character positions in the hidden word
       let textArray = this.word.text.split("").reduce(function (a, e, i) {
         if (e.toLowerCase() === buttonText) a.push(i);
         return a;
       }, []);
 
+      // insert text in correct word places
       textArray.forEach((element) => {
         const letter = document.getElementById("letter-" + element);
         letter.innerText = buttonText;
