@@ -73,12 +73,13 @@ export function hangmanTemplate(configuration) {
 export function updateComponents(configuration, buttonText) {
   const { wordComponent, puppetComponent, keyboardComponent } = configuration;
 
+  const wordText = wordComponent.getText().toLowerCase();
+  buttonText = buttonText.toLowerCase();
+
+  //updates each component
   wordComponent.updatesWord(buttonText);
   keyboardComponent.updateButton(buttonText);
-  puppetComponent.updateImage(
-    buttonText.toLowerCase(),
-    wordComponent.getText().toLowerCase()
-  );
+  puppetComponent.updateImage(buttonText, wordText);
 }
 
 /**

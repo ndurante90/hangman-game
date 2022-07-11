@@ -47,19 +47,23 @@ export class Hangman {
           return;
         }
         const hint = this.wordsService.getResourceTypeFromUrl(data.url);
+
+        //retrieving data.title field instead of data.name for films category
         let value = hint == "films" ? data.title : data.name;
         value = value.replace(/\s+/g, "");
         word = new Word(value, hint);
       });
 
       if (!errors && word) {
-        //set new word and updates template
+        //set new word
         configuration.setWord(word);
+
+        //updates html template
         document.body.innerHTML = hangmanTemplate(configuration);
 
         document.onclick = (ev) => {
           //at each button click I refresh application UI
-          if (ev.target.tagName.toLowerCase() === "button") {
+          if (ev.target.classList == "button") {
             updateComponents(configuration, ev.target.innerText);
           }
 

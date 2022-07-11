@@ -4,6 +4,7 @@ export class KeyBoardButtonComponent {
   }
 
   get template() {
-    return `<button id="btn-${this.car}" class="button" onclick="">${this.car}</button>`;
+    const uppercaseCar = this.car.toUpperCase();
+    return `<button id="btn-${this.car}" class="button" onclick="">${uppercaseCar}</button>`;
   }
 }

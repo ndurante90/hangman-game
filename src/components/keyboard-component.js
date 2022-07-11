@@ -32,7 +32,7 @@ export class KeyBoardComponent {
   getRow(num) {
     let rowTemplate = `<div class="keyboard-row" id="row-${num}">`;
     for (let car of this.rows[num]) {
-      const component = new KeyBoardButtonComponent(car.toUpperCase());
+      const component = new KeyBoardButtonComponent(car);
       rowTemplate += component.template;
       this.buttons.push(component);
     }
